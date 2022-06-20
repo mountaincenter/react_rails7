@@ -1,4 +1,4 @@
-version: '2.1'
+version: 2.1
 commands:
   install-tfnotify:
     description: tfnotifyのインストール
@@ -19,7 +19,7 @@ commands:
           when: always
           command: |
             if [ "<< parameters.action >>" = "plan"]; then
-              tfnotify --config .tfnotify/github.yml --title "Terrafrom Plan Output" <"$TFNOTIFY_LOG">/dev/null || true
+              tfnotify --config .tfnotify/github.yml --title "Terraform Plan Output" <"$TFNOTIFY_LOG">/dev/null || true
             else
               echo "Invalid action: << parameters.action >>"
               exit 1
@@ -36,7 +36,7 @@ jobs:
       - install-tfnotify
       - run: terraform init
       - run: terraform validate
-      - run: terraform plan | tee "$TFNORIFY_LOG"
+      - run: terraform plan | tee "$TFNOTIFY_LOG"
       - run-tfnotify:
           action: plan
 
@@ -53,7 +53,7 @@ jobs:
       - run-tfnotify:
           action: apply
 
-workflow:
+workflows:
   version: 2
   main:
     jobs:
