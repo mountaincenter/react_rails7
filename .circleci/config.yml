@@ -4,10 +4,10 @@ commands:
     description: tfnotifyのインストール
     steps:
       - run:
-        command: |
-            wget https://github.com/mercari/tfnotify/releases/download/v0.7.5/tfnotify_linux_amd64.tar.gz
-            tar zxvf tfnotify_linux_amd64.tar.gz
-            mv tfnotify /usr/local/bin
+          command: |
+              wget https://github.com/mercari/tfnotify/releases/download/v0.7.5/tfnotify_linux_amd64.tar.gz
+              tar zxvf tfnotify_linux_amd64.tar.gz
+              mv tfnotify /usr/local/bin
   run-tfnotify:
     description: tfnotifyの実行
     parameters:
