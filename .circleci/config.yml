@@ -58,12 +58,12 @@ workflows:
   main:
     jobs:
       - run_terraform_plan:
-        context: terraform
-        filters:
-          branches:
-            ignore: main
+          context: terraform
+          filters:
+            branches:
+              ignore: main
       - run_terraform_apply:
-        context: terraform
-        filters:
-          branches:
-            only: main
+          context: terraform
+          filters:
+            branches:
+              only: main
